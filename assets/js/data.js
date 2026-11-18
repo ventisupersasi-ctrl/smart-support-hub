@@ -1,0 +1,9 @@
+const hour=3600000, stamp=h=>new Date(Date.now()+h*hour).toISOString();
+const startDeployments=[
+{id:'DEP-01',client:'Учебный центр «Вектор»',product:'Система расписания',version:'v1.0.0',stage:'training',owner:'Специалист А',plannedDate:'2026-11-25',done:2,total:3},
+{id:'DEP-02',client:'Магазин «Маяк»',product:'Учёт товаров',version:'v1.0.0',stage:'setup',owner:'Специалист Б',plannedDate:'2026-11-28',done:1,total:4},
+{id:'DEP-03',client:'Сервис «Орбита»',product:'Личный кабинет',version:'v1.0.0',stage:'production',owner:'Специалист В',plannedDate:'2026-11-18',done:4,total:4}];
+const startIncidents=[
+['Не открывается отчёт','high','in_progress',-3,null],['Не проходит вход','critical','new',-6,null],['Не обновляется список','medium','new',-4,null],['Ошибка текста уведомления','low','new',-9,null],['Сбой печати','high','resolved',-12,-8],['Не загружается справочник','medium','resolved',-48,-20]].map((a,i)=>({id:'INC-'+String(i+1).padStart(3,'0'),title:a[0],priority:a[1],status:a[2],createdAt:stamp(a[3]),resolvedAt:a[4]===null?null:stamp(a[4])}));
+const startRequests=[['Исправить сортировку','corrective','planned','v1.0.1'],['Поддержать новый браузер','adaptive','new','v1.1.0'],['Добавить экспорт PDF','perfective','planned','v1.1.0'],['Обновить зависимости','preventive','done','v1.0.0']].map((a,i)=>({id:'REQ-00'+(i+1),title:a[0],type:a[1],status:a[2],targetVersion:a[3]}));
+const startReleases=[{id:'REL-001',version:'v0.9.0',date:'2026-11-10',level:'minor',changes:['Подготовлена модель данных']},{id:'REL-002',version:'v1.0.0',date:'2026-11-18',level:'major',changes:['Панель, внедрения, инциденты, заявки и релизы','Локальное сохранение данных и SLA']}];
